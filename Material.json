@@ -1,0 +1,28 @@
+{
+	"Material":[
+	{
+		"Name": "Copper",
+		"RadiusDistance": [2.2,3.3,4.1,4.7,5.3,5.8],
+		"NumberOfAtoms": [12,6,24,32,12,8],
+		"Temperature": 300,
+		"AtomicMass": 63.546,
+		"EinsteinTemperature": 343.5
+	},
+	{
+		"Name": "Iron",
+		"RadiusDistance": [0.9,1.93,1.95,2.4,4.1,6],
+		"NumberOfAtoms": [6,32,64,8,12,6],
+		"Temperature": 300,
+		"AtomicMass": 55.845,
+		"EinsteinTemperature": 470
+	},
+	{
+		"Name": "API2",
+		"RadiusDistance": [0.5,1.7,1.3,1.8,2.7,4.1],
+		"NumberOfAtoms": [1,8,16,64,16,6],
+		"Temperature": 2500,
+		"AtomicMass": 12.0107,
+		"EinsteinTemperature": 2230
+	}
+	]
+}
