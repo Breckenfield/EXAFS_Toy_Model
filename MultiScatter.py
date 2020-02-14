@@ -8,8 +8,8 @@ First step to build EXAFS scattering model
 Capable of calculating for multiple R values, Disorder over multiple scattering paths
 using the Einstine model for temperature.
 """
-import scipy as sp
-import numpy as np
+import scipy
+import numpy
 import matplotlib.pyplot as plt
 import json
 import Functions
@@ -25,55 +25,56 @@ import Functions
 #Einstein temperature (Example Cu: 343.5)
 #Oe = 343.5
 
+print("#-------------------------#")
+print("#-----EXAFS Toy Model-----#")
+print("#-------------------------#")
+
 materialName = input("Pick a Material to simulate: ")
 
 with open("Material.json", "r") as json_file:
     materialInfo = json.load(json_file)
+try:
+    print(materialInfo[materialName])
+except KeyError:
+    print("Material Not Found")
+    exit()
 
-for m in materialInfo["Material"]:
-    if m["Name"] == materialName:
-        R = m["RadiusDistance"]
-        num = m["NumberOfAtoms"]
-        temp = m["Temperature"]
-        Da = m["AtomicMass"]
-        Oe = m["EinsteinTemperature"]
-
-#------------------------------------#
-#---No user input below this point---#
-#------------------------------------#
+radius = materialInfo[materialName]["RadiusDistance"]
+num = materialInfo[materialName]["NumberOfAtoms"]
+temp = materialInfo[materialName]["Temperature"]
+atomicMass = materialInfo[materialName]["AtomicMass"]
+einsteinTemp = materialInfo[materialName]["EinsteinTemperature"]
 
 # Number of samplepoints
 N = 100000
 # Sample spacing
 T = 1.0/ 10
-   
+    
 # Constants
 hbar = 1.05e-34
-Kb = 1.38e-23
-u = (Da/2)*1.66e-27
+boltzmannConstant = 1.38e-23
+u = Functions.ConvertAtomicMass(atomicMass)
 
 # Sigma calculation
-sig = Functions.SigmaCal(temp, Oe, hbar, Kb, u)
+sig = Functions.SigmaCal(temp, einsteinTemp, hbar, boltzmannConstant, u)
 
 # Computation of K value range
-K = np.linspace(T, N*T, N)
-
-# Array and list creation
-Xk = []
+K = numpy.linspace(T, N*T, N)
 
 # X-axis for fourier transform
 Rf = Functions.RfCal(N)
 
 # Simplified EXAFS equation with K^2 weighting for all R values
-for i in range(len(R)):
-    X = Functions.EXAFSCal(num, i, K, R, sig)
+Xk = []
+for i in range(len(radius)):
+    X = Functions.EXAFSCal(num, i, K, radius, sig)
     Xk.append(X)
     Xk[i] = X
     #Ajusts for number of R values
 
-result = Functions.FourierTransformCal(N, Xk, R)
+result = Functions.FourierTransformCal(N, Xk, radius)
 Xkf_act = result[0]
 Xktot = result[1]
 
 #graph plots
-Functions.PlotResults(K, Xktot, Rf, Xkf_act, R, materialName)
+Functions.PlotResults(K, Xktot, Rf, Xkf_act, radius)
