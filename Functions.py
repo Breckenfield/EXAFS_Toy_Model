@@ -6,8 +6,10 @@ def EXAFSCal(num, i, K, R, sig):
     X = num[i]*((((numpy.sin(2.0*K*R[i]))/(K*R[i]**2.0))*(numpy.exp((-2.0)*(sig)*(K**2.0)))))*K**2
     return X
 
-def SigmaCal(temp, Oe, hbar, Kb, u):
-    sigTemp = ((hbar**2)/(2*Oe*Kb*u))*(numpy.cosh(Oe/(2*temp))/numpy.sinh(Oe/(2*temp)))*1e20 #sigma squared
+def SigmaCal(temp, Oe, u):
+    hbar = 1.05e-34
+    boltzmannConstant = 1.38e-23
+    sigTemp = ((hbar**2)/(2*Oe*boltzmannConstant*u))*(numpy.cosh(Oe/(2*temp))/numpy.sinh(Oe/(2*temp)))*1e20 #sigma squared
     sig = (sigTemp*4 + sigTemp*2 + sigTemp)/4 #linear multiple scattering effect
     return sig
 
@@ -29,6 +31,23 @@ def FourierTransformCal(N, Xk, R):
 def ConvertAtomicMass(Da):
     u = (Da/2)*1.66e-27
     return u
+
+def CheckMaterialInput(radius, numberOfAtoms, atomicMass, einsteinTemp):
+    checkLength = len(radius)
+    if checkLength > 0:
+        if len(atomicMass) != checkLength:
+            print("The Atomic Mass list in the Material.json file is different to the Radius list")
+            exit()
+        if len(einsteinTemp) != checkLength:
+            print("The Einstein Tempurature list in the Material.json file is different to the Radius list")
+            exit()
+        if len(numberOfAtoms) != checkLength:
+            print("The Number of Atoms list in the Material.json file is different to the Radius list")
+            exit()
+    else:
+        print("The Radius list has no content")
+        exit()
+    print("Material details checked!")
 
 def PlotResults(K, Xktot, Rf, Xkf_act, R):
     plt.figure(1)

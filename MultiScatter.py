@@ -45,18 +45,13 @@ temp = materialInfo[materialName]["Temperature"]
 atomicMass = materialInfo[materialName]["AtomicMass"]
 einsteinTemp = materialInfo[materialName]["EinsteinTemperature"]
 
+#Checks Json input
+Functions.CheckMaterialInput(radius, num, atomicMass, einsteinTemp)
+
 # Number of samplepoints
 N = 100000
 # Sample spacing
-T = 1.0/ 10
-    
-# Constants
-hbar = 1.05e-34
-boltzmannConstant = 1.38e-23
-u = Functions.ConvertAtomicMass(atomicMass)
-
-# Sigma calculation
-sig = Functions.SigmaCal(temp, einsteinTemp, hbar, boltzmannConstant, u)
+T = 1.0/10
 
 # Computation of K value range
 K = numpy.linspace(T, N*T, N)
@@ -67,6 +62,8 @@ Rf = Functions.RfCal(N)
 # Simplified EXAFS equation with K^2 weighting for all R values
 Xk = []
 for i in range(len(radius)):
+    u = Functions.ConvertAtomicMass(atomicMass[i])
+    sig = Functions.SigmaCal(temp, einsteinTemp[i], u)
     X = Functions.EXAFSCal(num, i, K, radius, sig)
     Xk.append(X)
     Xk[i] = X
