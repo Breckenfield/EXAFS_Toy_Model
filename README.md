@@ -5,7 +5,8 @@ MultiScatter.py is run and reads from Material.json for experimental information
 
 To run MultiScatter.py you will need Material.json and Functions.py in the same folder.
 
-~Materials and how to use them~
+-Materials and how to use them
+-
 
 The materials are stored in a .json format
 
