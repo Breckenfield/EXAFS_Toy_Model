@@ -1,16 +1,17 @@
 # EXAFS_Toy_Model
+
 Python code to simulate the output of an EXAFS Experiment
 
 MultiScatter.py is run and reads from Material.json for experimental information. Functions.py is what it says on the tin.
 
 To run MultiScatter.py you will need Material.json and Functions.py in the same folder.
 
--Materials and how to use them
+Materials and how to use them
 -
 
-The materials are stored in a .json format
-Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
-You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
+- The materials are stored in a .json format
+- Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
+- You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
 e.g.
 
 <pre><code>
