@@ -12,7 +12,7 @@ The materials are stored in a .json format
 
 e.g.
 
-'''''''
+<pre><code>
 
 "Copper":{
 
@@ -29,7 +29,8 @@ e.g.
 		"EinsteinTemperature": [343.5, 343.5, 343.5, 343.5, 343.5, 343.5]
 		
 	},
-'''''''
+</code></pre>
+
 
 Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
 You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
