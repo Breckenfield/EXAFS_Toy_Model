@@ -9,11 +9,11 @@ To run MultiScatter.py you will need Material.json and Functions.py in the same 
 -
 
 The materials are stored in a .json format
-
+Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
+You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
 e.g.
 
 <pre><code>
-
 "Copper":{
 
 		"Symbol":"Cu",
@@ -30,8 +30,3 @@ e.g.
 		
 	},
 </code></pre>
-
-
-Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
-You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
-
