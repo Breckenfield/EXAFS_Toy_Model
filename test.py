@@ -1,3 +1,13 @@
-import plotly.graph_objects as go
-fig = go.Figure(data=go.Bar(y=[2, 3, 1]))
-fig.write_html(auto_open=True)
+import Functions
+import unittest
+
+class TestFunctions(unittest.TestCase):
+    def test_CheckMaterialInput(self):
+        self.assertTrue(Functions.CheckMaterialInput([1],[1],[1],[1]))
+        self.assertFalse(Functions.CheckMaterialInput([],[1],[1],[1]))
+        self.assertFalse(Functions.CheckMaterialInput([1],[1,2],[1],[1]))
+        self.assertFalse(Functions.CheckMaterialInput([1],[1],[1,2],[1]))
+        self.assertFalse(Functions.CheckMaterialInput([1],[1],[1],[1,2]))
+
+if __name__ == '__main__':
+    unittest.main()

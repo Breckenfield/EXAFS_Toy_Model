@@ -28,26 +28,27 @@ def FourierTransformCal(N, Xk, R):
     Xkf_act = (2/N * numpy.abs(Xkf[0:Nhalf]))*100
     return Xkf_act, Xktot
 
-def ConvertAtomicMass(Da):
-    u = (Da/2)*1.66e-27
+def ConvertAtomicMass(atomicMass):
+    u = (atomicMass/2)*1.66e-27
     return u
 
 def CheckMaterialInput(radius, numberOfAtoms, atomicMass, einsteinTemp):
     checkLength = len(radius)
+    check = True
     if checkLength > 0:
-        if len(atomicMass) != checkLength:
-            print("The Atomic Mass list in the Material.json file is different to the Radius list")
-            exit()
-        if len(einsteinTemp) != checkLength:
-            print("The Einstein Tempurature list in the Material.json file is different to the Radius list")
-            exit()
         if len(numberOfAtoms) != checkLength:
-            print("The Number of Atoms list in the Material.json file is different to the Radius list")
-            exit()
+            print("The Number of Atoms list length in the Material.json file is different to the Radius list")
+            check = False
+        if len(atomicMass) != checkLength:
+            print("The Atomic Mass list length in the Material.json file is different to the Radius list")
+            check = False
+        if len(einsteinTemp) != checkLength:
+            print("The Einstein Tempurature list length in the Material.json file is different to the Radius list")
+            check = False
     else:
         print("The Radius list has no content")
-        exit()
-    print("Material details checked!")
+        check = False
+    return(check)
 
 def PlotResults(Rf, Xkf_act):
     print("Plotting Result")

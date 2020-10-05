@@ -33,7 +33,15 @@ atomicMass = materialInfo[materialName]["AtomicMass"]
 einsteinTemp = materialInfo[materialName]["EinsteinTemperature"]
 
 #Checks Json input
-Functions.CheckMaterialInput(radius, num, atomicMass, einsteinTemp)
+print("Checking Material Details")
+materialCheck = Functions.CheckMaterialInput(radius, num, atomicMass, einsteinTemp)
+    
+if materialCheck == False:
+    print("The material check has failed")
+    exit()
+else:
+    print("The material check has passed")
+
 
 # Number of samplepoints
 samplePoints = 10000
