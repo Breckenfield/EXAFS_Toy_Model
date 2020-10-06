@@ -10,23 +10,23 @@ def SigmaCal(temp, Oe, u):
     hbar = 1.05e-34
     boltzmannConstant = 1.38e-23
     sigTemp = ((hbar**2)/(2*Oe*boltzmannConstant*u))*(numpy.cosh(Oe/(2*temp))/numpy.sinh(Oe/(2*temp)))*1e20 #sigma squared
-    sig = (sigTemp*4 + sigTemp*2 + sigTemp)/4 #linear multiple scattering effect
-    return sig
+    sigma = (sigTemp*4 + sigTemp*2 + sigTemp)/4 #linear multiple scattering effect
+    return sigma
 
 def RfCal(N):
     Nhalf = int(N/2)
     Rf = numpy.linspace(0, 15.7201257862 , Nhalf)
     return Rf
 
-def FourierTransformCal(N, Xk, R):
-    Nhalf = int(N/2)
-    Xktot = numpy.zeros(N)
-    for j in range(len(R)):
-        Xktot = Xktot + Xk[j]
+def FourierTransformCal(samplePoints, Xk, radius):
+    Nhalf = int(samplePoints/2)
+    Xk_total = numpy.zeros(samplePoints)
+    for j in range(len(radius)):
+        Xk_total = Xk_total + Xk[j]
         # Fourier transform of Xk
-        Xkf = scipy.fft.fft(Xktot)
-    Xkf_act = (2/N * numpy.abs(Xkf[0:Nhalf]))*100
-    return Xkf_act, Xktot
+        Xkf = scipy.fft.fft(Xk_total)
+    Xkf_act = (2/samplePoints * numpy.abs(Xkf[0:Nhalf]))*100
+    return Xkf_act, Xk_total
 
 def ConvertAtomicMass(atomicMass):
     u = (atomicMass/2)*1.66e-27

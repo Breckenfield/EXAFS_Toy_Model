@@ -61,7 +61,6 @@ for i in range(len(radius)):
     sig = Functions.SigmaCal(temp, einsteinTemp[i], u)
     X = Functions.EXAFSCal(num, i, K, radius, sig)
     Xk.append(X)
-    Xk[i] = X
     #Ajusts for number of R values
 
 result = Functions.FourierTransformCal(samplePoints, Xk, radius)
