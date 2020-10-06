@@ -16,10 +16,12 @@ print("#-------------------------#")
 print("#-----EXAFS Toy Model-----#")
 print("#-------------------------#")
 
-materialName = input("Pick a Material to simulate: ")
-
 with open("Material.json", "r") as json_file:
     materialInfo = json.load(json_file)
+print("These are the materials present in Material.json:")
+for material in materialInfo:
+    print("- " + material)
+materialName = input("Pick a Material to simulate: ")
 try:
     print(materialInfo[materialName])
 except KeyError:

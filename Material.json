@@ -7,7 +7,7 @@
 		"AtomicMass": [63.546, 63.546, 63.546, 63.546, 63.546, 63.546],
 		"EinsteinTemperature": [343.5, 343.5, 343.5, 343.5, 343.5, 343.5]
 	},
-	"Example":{
+	"Multiple Element":{
 		"Symbol":"Iron and Carbon mixed",
 		"RadiusDistance": [0.9,1.95,1.95,2.4,4.1,6],
 		"NumberOfAtoms": [6,32,64,8,12,6],
