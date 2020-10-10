@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Nov 6 13:18 2015
-Updated on Thur Feb 6 10:56 2020
 
 @author: Connor Breckenfield
 First step to build EXAFS scattering model
@@ -44,11 +43,10 @@ if materialCheck == False:
 else:
     print("The material check has passed")
 
-
 # Number of samplepoints
 samplePoints = 10000
 # Sample spacing
-sampleSpacing = 1.0/10
+sampleSpacing = 0.1
 
 # Computation of K value range
 K = numpy.linspace(sampleSpacing, samplePoints*sampleSpacing, samplePoints)
@@ -63,11 +61,8 @@ for i in range(len(radius)):
     sig = Functions.SigmaCal(temp, einsteinTemp[i], u)
     X = Functions.EXAFSCal(num, i, K, radius, sig)
     Xk.append(X)
-    #Ajusts for number of R values
 
-result = Functions.FourierTransformCal(samplePoints, Xk, radius)
-Xkf_act = result[0]
-Xktot = result[1]
+Xkf_act = Functions.FourierTransformCal(samplePoints, Xk, radius)
 
 #graph plots
 Functions.PlotResults(Rf,Xkf_act)
