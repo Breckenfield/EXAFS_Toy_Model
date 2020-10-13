@@ -9,7 +9,7 @@ using the Einstine model for temperature.
 """
 import numpy
 import json
-import Functions
+import functions
 
 print("#-------------------------#")
 print("#-----EXAFS Toy Model-----#")
