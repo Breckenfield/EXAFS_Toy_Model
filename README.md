@@ -11,7 +11,12 @@ Materials and how to use them
 
 - The materials are stored in a .json format
 - The user can pick the material they want to use from Material.json
-- Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length.
+- Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the <b>SAME</b> length.
+- <b>"RadiusDistance"</b> is the distance from the "center" atom measured in angstroms
+- <b>"NumberOfAtoms"</b> is the number of atoms of of the element at that radius
+- <b>"Tempurature"</b> is the tempurature of the material in kelvin
+- <b>"AtomicMass"</b> is the atomic mass of the element at that radius
+- <b>"EinsteinTempurature"</b> is the specific Einstein Tempurature of the element at that radius in kelvin
 
 e.g.
 
