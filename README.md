@@ -10,6 +10,7 @@ Materials and how to use them
 -
 
 - The materials are stored in a .json format
+- The user can pick the material they want to use from Material.json
 - Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length.
 
 e.g.
@@ -35,7 +36,7 @@ e.g.
 	"NumberOfAtoms": [6, 32, 64, 8, 12, 6],
 	"Temperature": 300,
 	"AtomicMass": [55.845, 12, 55.845, 12, 55.845, 55.845],
-	"EinsteinTemperature": [470, 470, 470, 470, 470, 470]
-}
+	"EinsteinTemperature": [470, 2230, 470, 2230, 470, 470]
+	}
 </code></pre>
 
