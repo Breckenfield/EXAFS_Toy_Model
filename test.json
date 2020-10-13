@@ -1,0 +1,10 @@
+{
+    "Test":{
+        "Symbol":"Tst",
+        "RadiusDistance": [1,2],
+        "NumberOfAtoms": [1,2],
+        "Temperature": 300,
+        "AtomicMass": [1,2],
+        "EinsteinTemperature": [300,400]
+    }
+}

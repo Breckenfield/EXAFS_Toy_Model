@@ -7,20 +7,12 @@
 		"AtomicMass": [63.546, 63.546, 63.546, 63.546, 63.546, 63.546],
 		"EinsteinTemperature": [343.5, 343.5, 343.5, 343.5, 343.5, 343.5]
 	},
-	"Multiple Element":{
+	"Multiple Element Example":{
 		"Symbol":"Iron and Carbon mixed",
 		"RadiusDistance": [0.9,1.95,1.95,2.4,4.1,6],
 		"NumberOfAtoms": [6,32,64,8,12,6],
 		"Temperature": 300,
 		"AtomicMass": [55.845, 12, 55.845, 12, 55.845, 55.845],
 		"EinsteinTemperature": [470, 470, 470, 470, 470, 470]
-	},
-	"Test":{
-		"Symbol":"Tst",
-		"RadiusDistance": [1],
-		"NumberOfAtoms": [1],
-		"Temperature": 300,
-		"AtomicMass": [1],
-		"EinsteinTemperature": [300]
 	}
 }
