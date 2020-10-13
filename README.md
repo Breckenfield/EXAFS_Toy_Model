@@ -11,6 +11,7 @@ Materials and how to use them
 
 - The materials are stored in a .json format
 - Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length.
+
 e.g.
 
 <pre><code>
@@ -24,6 +25,7 @@ e.g.
 	}
 </code></pre>
 - You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
+
 e.g.
 
 <pre><code>
