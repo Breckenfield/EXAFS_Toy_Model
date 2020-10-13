@@ -2,32 +2,38 @@
 
 Python code to simulate the output of an EXAFS Experiment
 
-MultiScatter.py is run and reads from Material.json for experimental information. Functions.py is what it says on the tin.
+multiscatter.py is run and reads from Material.json for material information.
 
-To run MultiScatter.py you will need Material.json and Functions.py in the same folder.
+To run multiscatter.py you will need Material.json and functions.py in the same folder
 
 Materials and how to use them
 -
 
 - The materials are stored in a .json format
-- Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length. 
-- You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
+- Radius Distance, Number Of Atoms, Atomic Mass and Einstein Temperature all need to be the SAME length.
 e.g.
 
 <pre><code>
 "Copper":{
-
-		"Symbol":"Cu",
-		
-		"RadiusDistance": [2.2, 3.3, 4.1, 4.7, 5.3, 5.8],
-		
-		"NumberOfAtoms": [12, 6, 24, 32, 12, 8],
-		
-		"Temperature": 300,
-		
-		"AtomicMass": [63.546, 63.546, 63.546, 63.546, 63.546, 63.546],
-		
-		"EinsteinTemperature": [343.5, 343.5, 343.5, 343.5, 343.5, 343.5]
-		
-	},
+	"Symbol":"Cu",
+	"RadiusDistance": [2.2, 3.3, 4.1, 4.7, 5.3, 5.8],
+	"NumberOfAtoms": [12, 6, 24, 32, 12, 8],
+	"Temperature": 300,
+	"AtomicMass": [63.546, 63.546, 63.546, 63.546, 63.546, 63.546],
+	"EinsteinTemperature": [343.5, 343.5, 343.5, 343.5, 343.5, 343.5]	
+	}
 </code></pre>
+- You can set the Atomic Mass and Einstein Tempurature per Radius for materials with multiple elements.
+e.g.
+
+<pre><code>
+"Multiple Element Example":{
+	"Symbol":"Iron and Carbon mixed",
+	"RadiusDistance": [0.9, 1.95, 1.95, 2.4, 4.1, 6],
+	"NumberOfAtoms": [6, 32, 64, 8, 12, 6],
+	"Temperature": 300,
+	"AtomicMass": [55.845, 12, 55.845, 12, 55.845, 55.845],
+	"EinsteinTemperature": [470, 470, 470, 470, 470, 470]
+}
+</code></pre>
+
